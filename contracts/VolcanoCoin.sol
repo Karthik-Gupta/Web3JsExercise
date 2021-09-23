@@ -13,7 +13,7 @@ contract VolcanoCoin {
     mapping(address => uint) balances;
     mapping(address => Payment[]) payments;
 
-    event totalSupplyEvent(uint);
+    event TotalSupply(uint);
     event Transfer(address indexed _from, address indexed _to, uint _amount);
 
     modifier ownerPrivilege {
@@ -33,7 +33,7 @@ contract VolcanoCoin {
     function changeTotalSupply() external ownerPrivilege {
         totalSupply += 1000;
         balances[owner] = totalSupply;
-        emit totalSupplyEvent(totalSupply);
+        emit TotalSupply(totalSupply);
     }
 
     function transfer(uint _amount, address _recipient) external {
